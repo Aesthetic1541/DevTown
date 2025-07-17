@@ -1,0 +1,28 @@
+/* === Custom Animations === */
+
+@keyframes move-bg {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Utility Classes === */
+
+.animate-move-bg {
+  animation: move-bg 15s linear infinite;
+  background-size: 200% 100%;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 1s ease-out;
+}
