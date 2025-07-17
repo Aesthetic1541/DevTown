@@ -15,44 +15,52 @@
   <script src="script.js"></script>
 
   <!--Script part for toggle-->
-  <!-- Skills -->
-<section id="skills" class="py-20 bg-gray-50 dark:bg-gray-900">
-  <div class="max-w-6xl mx-auto px-4">
-    <h2 class="text-3xl font-bold mb-12 text-center text-gray-800 dark:text-white">Skills & Background</h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-      
-      <!-- Technical Skills -->
-      <div>
-        <h3 class="text-xl font-semibold mb-4 text-primary">Technical Skills</h3>
-        <p class="mb-4 text-gray-700 dark:text-gray-300">
-          I possess a solid foundation in software development and frontend technologies. I am well-versed in:
-        </p>
-        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-          <li>Programming Languages: C, Python</li>
-          <li>Frontend Technologies: HTML5, CSS3, JavaScript</li>
-          <li>Frameworks & Tools: Tailwind CSS, Git, GitHub, VS Code</li>
-          <li>Responsive Web Design & UI/UX Principles</li>
-          <li>Project Deployment & Version Control</li>
-        </ul>
-      </div>
+  <!-- Your content goes here -->
 
-      <!-- Education & Experience -->
-      <div>
-        <h3 class="text-xl font-semibold mb-4 text-primary">Education & Professional Experience</h3>
-        <p class="mb-4 text-gray-700 dark:text-gray-300">
-          My academic journey and industry exposure have helped me build both technical proficiency and real-world problem-solving skills.
-        </p>
-        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
-          <li>Pursuing B.Tech in Computer Science from Gurukul Kangri Vishwavidyalaya, Haridwar</li>
-          <li>Simultaneously enrolled in the BS in Data Science program at IIT Madras</li>
-          <li>Intern at Edunet Foundation, powered by Microsoft and approved by AICTE, where I worked on real-time projects, enhancing my development and teamwork skills</li>
-          <li>Actively engaged in developing web projects and participating in innovation-driven learning</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- JS Script -->
+<script>
+  // Theme Toggle
+  const themeToggle = document.getElementById("theme-toggle");
+  const lightIcon = document.getElementById("theme-toggle-light-icon");
+  const darkIcon = document.getElementById("theme-toggle-dark-icon");
+
+  // Load initial theme
+  if (
+    localStorage.getItem("theme") === "dark" ||
+    (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+    darkIcon.classList.add("hidden");
+    lightIcon.classList.remove("hidden");
+  } else {
+    document.documentElement.classList.remove("dark");
+    lightIcon.classList.add("hidden");
+    darkIcon.classList.remove("hidden");
+  }
+
+  // Toggle Theme
+  themeToggle.addEventListener("click", () => {
+    lightIcon.classList.toggle("hidden");
+    darkIcon.classList.toggle("hidden");
+    if (document.documentElement.classList.contains("dark")) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    }
+  });
+
+  // Mobile Menu Toggle
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector("nav ul");
+
+  menuToggle.addEventListener("click", () => {
+    navLinks.classList.toggle("hidden");
+  });
+</script>
+</body>
+</html>
 
 
 
